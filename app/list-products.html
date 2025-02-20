@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        .container {
+            max-width: 1200px;
+        }
+
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #2f2f2f;
+        }
+
+        .btn {
+            background-color: #84b8ef;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #93bfef;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Products</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="product-list">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const products = [
+                { img: "assets/images/picture1.jpg", title: "Narsico perfume", desc: "Short description 1", price: "$19.99" },
+                { img: "assets/images/picture2.jpg", title: "Coach perfume", desc: "Short description 2", price: "$39.99" },
+                { img: "assets/images/picture3.jpg", title: "Thinkpad", desc: "Thinkpad.", price: "$199.99" },
+                { img: "assets/images/picture4.jpg", title: "Cupcake", desc: "Very sweet cupcake.", price: "$7.99" },
+                { img: "assets/images/picture5.jpg", title: "Fujifilm camera", desc: "Short description 5", price: "$239.99" },
+                { img: "assets/images/picture6.jpg", title: "Coca cola", desc: "Short description 6", price: "$4.99" },
+                { img: "assets/images/picture7.jpg", title: "Cream", desc: "This is a cream for protecting your skin.", price: "$59.99" },
+                { img: "assets/images/picture8.jpg", title: "Starbucks paper wrap", desc: "This is a starbucks paper wrap that can prevent from burning.", price: "$0.99" },
+                { img: "assets/images/picture9.jpg", title: "Nikon camera", desc: "This is a Nikon camera.", price: "$399.99" }
+            ];
+
+            const productList = document.getElementById("product-list");
+
+            products.forEach(product => {
+                const col = document.createElement("div");
+                col.classList.add("col");
+
+                const card = document.createElement("div");
+                card.classList.add("card", "h-100");
+
+                card.innerHTML = `
+                    <img src="${product.img}" class="card-img-top" alt="${product.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.title}</h5>
+                        <p class="card-text">${product.desc}</p>
+                        <p class="fw-bold">${product.price}</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                `;
+
+                col.appendChild(card);
+                productList.appendChild(col);
+            });
+        });
+    </script>
+</body>
+</html>
+

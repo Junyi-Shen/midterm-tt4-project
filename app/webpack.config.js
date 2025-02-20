@@ -60,11 +60,12 @@ module.exports = {
       chunks: ["global", "index"],
       filename: "index.html",
     }),
-    // new HtmlWebpackPlugin({
-    //   template: "./list-products.html",
-    //   chunks: ["listProducts", "global"],
-    //   filename: "list-products.html",
-    // }),
+    new HtmlWebpackPlugin({
+      template: "./list-products.html",
+      chunks: ["listProducts", "global"],
+      filename: "list-products.html",
+    }),
+    
     // new HtmlWebpackPlugin({
     //   template: "./add-products.html",
     //   chunks: ["addProducts", "global"],
